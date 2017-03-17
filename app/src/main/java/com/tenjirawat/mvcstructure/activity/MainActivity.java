@@ -45,6 +45,7 @@ public class MainActivity extends AppCompatActivity {
         if(savedInstanceState == null) {
             MainFragment mainFragment = (MainFragment) getSupportFragmentManager().findFragmentByTag("MainFragment");
             mainFragment.setHelloText("Woo Hooooo");
+            //some change
         }
     }
 
