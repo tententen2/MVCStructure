@@ -2,6 +2,7 @@ package com.tenjirawat.mvcstructure.activity;
 
 import android.os.Build;
 import android.os.PersistableBundle;
+import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -58,10 +59,14 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if(item.getItemId() == R.id.item_hello){
-            getSupportFragmentManager().beginTransaction()
-                    .replace(R.id.contentContainer, SecondFragment.newInstance())
-                    .commit();
+            Fragment fragment = getSupportFragmentManager().findFragmentById(R.id.contentContainer);
 
+            if(fragment instanceof SecondFragment == false) {
+                getSupportFragmentManager().beginTransaction()
+                        .replace(R.id.contentContainer, SecondFragment.newInstance())
+                        .addToBackStack(null)
+                        .commit();
+            }
             Toast.makeText(MainActivity.this,"Second",Toast.LENGTH_LONG).show();
             return true; // we handler already ?
         }
