@@ -3,6 +3,7 @@ package com.tenjirawat.mvcstructure.activity;
 import android.os.Build;
 import android.os.PersistableBundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -63,6 +64,7 @@ public class MainActivity extends AppCompatActivity {
 
             if(fragment instanceof SecondFragment == false) {
                 getSupportFragmentManager().beginTransaction()
+                        .setCustomAnimations(R.anim.from_right,R.anim.to_left,R.anim.from_left,R.anim.to_right)
                         .replace(R.id.contentContainer, SecondFragment.newInstance())
                         .addToBackStack(null)
                         .commit();
