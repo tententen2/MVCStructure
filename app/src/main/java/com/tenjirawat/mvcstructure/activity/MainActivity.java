@@ -68,7 +68,7 @@ public class MainActivity extends AppCompatActivity {
                         .commit();
             }
             Toast.makeText(MainActivity.this,"Second",Toast.LENGTH_LONG).show();
-            return true; // we handler already ?
+            return true; // we handler already ?แ
         }
         return super.onOptionsItemSelected(item); // didn't enter someone
     }
